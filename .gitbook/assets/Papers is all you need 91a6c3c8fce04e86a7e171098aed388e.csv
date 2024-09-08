@@ -1,0 +1,30 @@
+﻿Name,LINK,Field of knowledge,Company,Todo
+Cold Start Similar Artists Ranking with Gravity-Inspired Graph Autoencoders,https://arxiv.org/pdf/2108.01053,RecSys,Deezer,Not yet
+Personalized Audiobook Recommendations at Spotify Through Graph Neural Networks,https://arxiv.org/abs/2403.05185,RecSys,Spotify,Not yet
+"Learning Deep Structured Semantic Models
+for Web Search using Clickthrough Data",https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/cikm2013_DSSM_fullversion.pdf,RecSys,Microsoft,Not yet
+A Semi-Personalized System for User Cold Start Recommendation on Music Streaming Apps,https://arxiv.org/abs/2106.03819,RecSys,Deezer,Post on blog
+"RetrievalQA: Assessing Adaptive Retrieval-Augmented Generation for
+Short-form Open-Domain Question Answering",https://arxiv.org/abs/2402.16457,"LLM, NLP",,Not yet
+"Monolith: Real Time Recommendation System With
+Collisionless Embedding Table",https://arxiv.org/pdf/2209.07663,RecSys,TikTok,Not yet
+DeepFM: A Factorization-Machine based Neural Network for CTR Prediction,https://arxiv.org/pdf/1703.04247,RecSys,Huawei,Not yet
+"[W2V] Efficient Estimation of Word Representations in
+Vector Space",https://arxiv.org/pdf/1301.3781,"LLM, NLP",Google,Not yet
+"[FAST TEXT] Enriching Word Vectors with Subword Information ",https://arxiv.org/pdf/1607.04606,"LLM, NLP",META,Not yet
+[ATTENTION] Neural Machine Translation by Jointly Learning to Align and Translate,https://arxiv.org/pdf/1409.0473,"LLM, NLP",,Not yet
+[Transformers] Attention Is All You Need,https://arxiv.org/pdf/1706.03762,"LLM, NLP",Google,Not yet
+"BERT: Pre-training of Deep Bidirectional Transformers for
+Language Understanding",https://arxiv.org/pdf/1810.04805,"LLM, NLP",Google,Not yet
+GPT-2,https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf,LLM,OpenAI,Not yet
+GPT-3,https://arxiv.org/pdf/2005.14165,LLM,OpenAI,Not yet
+CLIP,https://arxiv.org/pdf/2103.00020,"CV, LLM",OpenAI,Not yet
+LoRa,https://arxiv.org/pdf/2106.09685,LLM,Microsoft,Not yet
+InstructGPT,https://arxiv.org/pdf/2203.02155,LLM,OpenAI,Not yet
+FlashAttention,https://arxiv.org/pdf/2205.14135,"LLM, NLP",,Not yet
+LLaMA,https://arxiv.org/pdf/2302.13971,LLM,META,Not yet
+DropoutNet: Addressing Cold Start in Recommender Systems,https://papers.nips.cc/paper_files/paper/2017/file/dbd22ba3bd0df8f385bdac3e9f8be207-Paper.pdf,RecSys,,Not yet
+PinSage: Graph Convolutional Neural Networks for Web-Scale Recommender Systems,https://arxiv.org/pdf/1806.01973,RecSys,Pinterest,Not yet
+PinnerSage: Multi-Modal User Embedding Framework for Recommendations at Pinteres,https://arxiv.org/pdf/2007.03634,RecSys,Pinterest,Not yet
+MultiSage: Empowering GCN with Contextualized Multi-Embeddings on Web-Scale Multipartite Networks,https://dl.acm.org/doi/pdf/10.1145/3394486.3403293,RecSys,Pinterest,Not yet
+,,,,
