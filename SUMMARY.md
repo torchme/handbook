@@ -12,7 +12,7 @@
     * [Поиск товаров на маркетплейсе](recsys/navigation/ml-system-design/poisk-tovarov-na-marketpleise.md)
     * [Рекомендации аналогов и похожих товаров fashion retail](recsys/navigation/ml-system-design/rekomendacii-analogov-i-pokhozhikh-tovarov-fashion-retail.md)
   * [MODELS](recsys/navigation/models/README.md)
-    * [Graph Representation \[WIP\]](recsys/navigation/models/graph-representation-wip.md)
+    * [Node2Vec + Random Walk Graph RecSys](recsys/navigation/models/node2vec-+-random-walk-graph-recsys.md)
     * [iSVD](recsys/navigation/models/isvd.md)
     * [The Alternating Least Squares Method \[WIP\]](recsys/navigation/models/the-alternating-least-squares-method-wip.md)
     * [item KNN \[WIP\]](recsys/navigation/models/item-knn-wip.md)
@@ -21,7 +21,7 @@
     * [DSSM \[WIP\]](recsys/navigation/models/dssm-wip.md)
     * [CASER \[SOON\]](recsys/navigation/models/caser-soon.md)
     * [SASREC \[SOON\]](recsys/navigation/models/sasrec-soon.md)
-    * [BERTREC \[SOON\]](recsys/navigation/models/bertrec-soon.md)
+    * [Все что вы хотели знать про Трансформеры в Рекомендациях](recsys/navigation/models/vse-chto-vy-khoteli-znat-pro-transformery-v-rekomendaciyakh.md)
     * [PinSage \[SOON\]](recsys/navigation/models/pinsage-soon.md)
     * [PinnerSage](recsys/navigation/models/pinnersage.md)
     * [PinnerFormer](recsys/navigation/models/pinnerformer.md)
@@ -66,3 +66,8 @@
   * [Intervals](algo/navigation/intervals.md)
   * [Math & Geometry](algo/navigation/math-and-geometry.md)
   * [Bit Manipulation](algo/navigation/bit-manipulation.md)
+
+## ⁉️ INTERVIEWING
+
+* [ML Questions](interviewing/ml-questions.md)
+* [Python Questions](interviewing/python-questions.md)
