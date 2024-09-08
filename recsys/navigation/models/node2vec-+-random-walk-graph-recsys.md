@@ -191,10 +191,147 @@ $$
 
 ***
 
-### Code
+## Code
+
+Project Tree
+
+```markdown
+├── .venv/                          # Виртуальное окружение Python
+├── dataset/                        # Папка с данными
+│   └── ml-100k/                    # Датасет MovieLens 100k
+│       ├── allbut.pl
+│       ├── mku.sh
+│       ├── README
+│       ├── u.data                  # Основной файл с данными
+│       ├── u.genre
+│       ├── u.info
+│       ├── u.item
+│       ├── u.occupation
+│       ├── u.user
+│       ├── u1.base
+│       ├── u1.test
+│       ├── u2.base
+│       ├── u2.test
+│       ├── u3.base
+│       ├── u3.test
+│       ├── u4.base
+│       ├── u4.test
+│       ├── u5.base
+│       ├── u5.test
+│       ├── ua.base
+│       ├── ua.test
+│       ├── ub.base
+│       └── ub.test
+├── node2vec_model.emb              # Файл с эмбеддингами, полученными с помощью Node2Vec
+└── node2vec_script.py              # Python-скрипт для выполнения Node2Vec
+```
+
+### node2vec\_script.py
 
 ```python
-// Some code
+import pandas as pd
+import networkx as nx
+from node2vec import Node2Vec
+from gensim.models import KeyedVectors
+import os
+
+# Загрузка данных и создание графа
+def load_graph(file_path):
+    data = pd.read_csv(file_path, sep='\t', names=['user_id', 'item_id', 'rating', 'timestamp'])
+    G = nx.Graph()
+    for _, row in data.iterrows():
+        G.add_edge(row['user_id'], row['item_id'])
+    return G, data
+
+# Загрузка информации о фильмах
+def load_item_info(file_path):
+    item_info = pd.read_csv(file_path, sep='|', encoding='latin-1', header=None, 
+                            names=['item_id', 'title', 'release_date', 'video_release_date', 'IMDb_URL', 
+                                   'unknown', 'Action', 'Adventure', 'Animation', "Children's", 'Comedy', 
+                                   'Crime', 'Documentary', 'Drama', 'Fantasy', 'Film-Noir', 'Horror', 
+                                   'Musical', 'Mystery', 'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western'])
+    return item_info
+
+# Основная функция для выполнения node2vec
+def run_node2vec(file_path, dimensions=64, walk_length=30, num_walks=200, workers=4):
+    G, data = load_graph(file_path)
+    
+    # Инициализация node2vec
+    node2vec = Node2Vec(G, dimensions=dimensions, walk_length=walk_length, num_walks=num_walks, workers=workers)
+    
+    # Обучение модели
+    model = node2vec.fit(window=10, min_count=1, batch_words=4)
+    
+    return model, data
+
+# Функция для получения топ-10 предсказаний для пользователя
+def get_top_10_recommendations(model, user_id, data, item_info):
+    user_items = data[data['user_id'] == user_id]['item_id'].tolist()
+    recommendations = model.most_similar(user_items, topn=10)
+    
+    # Получение названий фильмов и жанров
+    recommendations_info = [(item_info[item_info['item_id'] == int(item)]['title'].values[0], 
+                             item_info[item_info['item_id'] == int(item)].iloc[:, 5:].idxmax(axis=1).values[0]) 
+                            for item, _ in recommendations]
+    
+    # Получение реальных взаимодействий пользователя
+    user_interactions = [(item_info[item_info['item_id'] == item]['title'].values[0], 
+                          item_info[item_info['item_id'] == item].iloc[:, 5:].idxmax(axis=1).values[0]) 
+                         for item in user_items]
+    
+    return recommendations_info, user_interactions
+
+# Пример использования
+if __name__ == "__main__":
+    file_path = 'dataset/ml-100k/u.data'  # Укажите путь к вашему файлу данных
+    item_info_path = 'dataset/ml-100k/u.item'  # Укажите путь к файлу с информацией о фильмах
+    model_path = "node2vec_model.emb"
+    
+    if os.path.exists(model_path):
+        model = KeyedVectors.load_word2vec_format(model_path)
+        _, data = load_graph(file_path)
+    else:
+        model, data = run_node2vec(file_path)
+        model.wv.save_word2vec_format(model_path)
+    
+    item_info = load_item_info(item_info_path)
+    
+    # Получение топ-10 предсказаний для пользователя
+    user_id = 1  # Укажите ID пользователя
+    recommendations, user_interactions = get_top_10_recommendations(model, user_id, data, item_info)
+    
+    print(f"Топ-10 рекомендаций для пользователя {user_id}:")
+    for title, genre in recommendations:
+        print(f"{title} ({genre})")
+    
+    print("\nРеальные взаимодействия пользователя:")
+    for title, genre in user_interactions[:10]:
+        print(f"{title} ({genre})")
+        
+# OUTPUT:
+# Топ-10 рекомендаций для пользователя 1:
+# Brazil (1985) (Sci-Fi)
+# Get Shorty (1995) (Action)
+# Sound of Music, The (1965) (Musical)        
+# Unforgiven (1992) (Western)
+# This Is Spinal Tap (1984) (Comedy)
+# Monty Python's Life of Brian (1979) (Comedy)
+# Batman (1989) (Action)
+# Heathers (1989) (Comedy)
+# Philadelphia (1993) (Drama)
+# Citizen Kane (1941) (Drama)
+
+# Реальные взаимодействия пользователя:
+# Three Colors: White (1994) (Drama)
+# Grand Day Out, A (1992) (Animation)
+# Desperado (1995) (Action)
+# Glengarry Glen Ross (1992) (Drama)
+# Angels and Insects (1995) (Drama)
+# Groundhog Day (1993) (Comedy)
+# Delicatessen (1991) (Comedy)
+# Hunt for Red October, The (1990) (Action)
+# Dirty Dancing (1987) (Musical)
+# Rock, The (1996) (Action)
 ```
 
 ***

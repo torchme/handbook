@@ -13,7 +13,7 @@
     * [Рекомендации аналогов и похожих товаров fashion retail](recsys/navigation/ml-system-design/rekomendacii-analogov-i-pokhozhikh-tovarov-fashion-retail.md)
   * [MODELS](recsys/navigation/models/README.md)
     * [Node2Vec + Random Walk Graph RecSys](recsys/navigation/models/node2vec-+-random-walk-graph-recsys.md)
-    * [iSVD](recsys/navigation/models/isvd.md)
+    * [iSVD \[SOON\]](recsys/navigation/models/isvd-soon.md)
     * [The Alternating Least Squares Method \[WIP\]](recsys/navigation/models/the-alternating-least-squares-method-wip.md)
     * [item KNN \[WIP\]](recsys/navigation/models/item-knn-wip.md)
     * [LGCN \[SOON\]](recsys/navigation/models/lgcn-soon.md)
@@ -23,7 +23,7 @@
     * [SASREC \[SOON\]](recsys/navigation/models/sasrec-soon.md)
     * [Все что вы хотели знать про Трансформеры в Рекомендациях](recsys/navigation/models/vse-chto-vy-khoteli-znat-pro-transformery-v-rekomendaciyakh.md)
     * [PinSage \[SOON\]](recsys/navigation/models/pinsage-soon.md)
-    * [PinnerSage](recsys/navigation/models/pinnersage.md)
+    * [PinnerSage \[SOON\]](recsys/navigation/models/pinnersage-soon.md)
     * [PinnerFormer](recsys/navigation/models/pinnerformer.md)
     * [RecVAE](recsys/navigation/models/recvae.md)
     * [DCN](recsys/navigation/models/dcn.md)
@@ -71,3 +71,4 @@
 
 * [ML Questions](interviewing/ml-questions.md)
 * [Python Questions](interviewing/python-questions.md)
+* [Interviewing Not a Rocket Science](interviewing/interviewing-not-a-rocket-science.md)

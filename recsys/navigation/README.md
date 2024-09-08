@@ -44,6 +44,6 @@ icon: compass
 
 Коллекция научных статей и публикаций по машинному обучению и рекомендательным системам. Здесь вы найдете обзоры, рецензии и комментарии к наиболее значимым исследованиям в этой области.
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="paper.md" %}
+[paper.md](paper.md)
 {% endcontent-ref %}
