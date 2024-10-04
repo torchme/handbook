@@ -1,2 +1,0 @@
-# PinSage \[SOON]
-
